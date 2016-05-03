@@ -1,7 +1,109 @@
 <!DOCTYPE html>
 <html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+  </head>
 <body>
-<h1>Hello World!</h1>
-<p>Coming soon...</p>
+  <ul class="topnav">
+    <li class="active"><a href="#home" onclick="setActive()">Home</a></li>
+    <li><a href="#news" onclick="setActive()">News</a></li>
+    <li><a href="#contact" onclick="setActive()">Contact</a></li>
+    <li><a href="#about" onclick="setActive()">About</a></li>
+    <li class="icon">
+      <a href="javascript:void(0);" onclick="myFunction()">&#9776;</a>
+    </li>
+  </ul>
+  <section id="home">
+    <h1>HOME</h1>
+    <p>Some text some text some text some text..</p>
+    <p>Some text some text some text some text..</p>
+    <p>Some text some text some text some text..</p>
+    <p>Some text some text some text some text..</p>
+    <p>Some text some text some text some text..</p>
+    <p>Some text some text some text some text..</p>
+    <p>Some text some text some text some text..</p>
+    <p>Some text some text some text some text..</p>
+    <p>Some text some text some text some text..</p>
+    <p>Some text some text some text some text..</p>
+    <p>Some text some text some text some text..</p>
+    <p>Some text some text some text some text..</p>
+    <p>Some text some text some text some text..</p>
+    <p>Some text some text some text some text..</p>
+    <p>Some text some text some text some text..</p>
+    <p>Some text some text some text some text..</p>
+    <p>Some text some text some text some text..</p>
+  </section>
+  <section id="news">
+    <h1>NEWS</h1>
+    <p>Some text some text some text some text..</p>
+    <p>Some text some text some text some text..</p>
+    <p>Some text some text some text some text..</p>
+    <p>Some text some text some text some text..</p>
+    <p>Some text some text some text some text..</p>
+    <p>Some text some text some text some text..</p>
+    <p>Some text some text some text some text..</p>
+    <p>Some text some text some text some text..</p>
+    <p>Some text some text some text some text..</p>
+    <p>Some text some text some text some text..</p>
+    <p>Some text some text some text some text..</p>
+    <p>Some text some text some text some text..</p>
+    <p>Some text some text some text some text..</p>
+    <p>Some text some text some text some text..</p>
+    <p>Some text some text some text some text..</p>
+    <p>Some text some text some text some text..</p>
+    <p>Some text some text some text some text..</p>
+  </section>
+  <section id="contact">
+    <h1>CONTACT</h1>
+    <p>Some text some text some text some text..</p>
+    <p>Some text some text some text some text..</p>
+    <p>Some text some text some text some text..</p>
+    <p>Some text some text some text some text..</p>
+    <p>Some text some text some text some text..</p>
+    <p>Some text some text some text some text..</p>
+    <p>Some text some text some text some text..</p>
+    <p>Some text some text some text some text..</p>
+    <p>Some text some text some text some text..</p>
+    <p>Some text some text some text some text..</p>
+    <p>Some text some text some text some text..</p>
+    <p>Some text some text some text some text..</p>
+    <p>Some text some text some text some text..</p>
+    <p>Some text some text some text some text..</p>
+    <p>Some text some text some text some text..</p>
+    <p>Some text some text some text some text..</p>
+    <p>Some text some text some text some text..</p>
+  </section>
+  <section id="about">
+    <h1>ABOUT</h1>
+    <p>Some text some text some text some text..</p>
+    <p>Some text some text some text some text..</p>
+    <p>Some text some text some text some text..</p>
+    <p>Some text some text some text some text..</p>
+    <p>Some text some text some text some text..</p>
+    <p>Some text some text some text some text..</p>
+    <p>Some text some text some text some text..</p>
+    <p>Some text some text some text some text..</p>
+    <p>Some text some text some text some text..</p>
+    <p>Some text some text some text some text..</p>
+    <p>Some text some text some text some text..</p>
+    <p>Some text some text some text some text..</p>
+    <p>Some text some text some text some text..</p>
+    <p>Some text some text some text some text..</p>
+    <p>Some text some text some text some text..</p>
+    <p>Some text some text some text some text..</p>
+    <p>Some text some text some text some text..</p>
+  </section>
+  <script>
+    function myFunction(){
+      document.getElementsByClassName('topnav')[0].classList.toggle('responsive');
+    }
+
+    function setActive(){
+      document.getElementsByClassName('active')[0].classList.toggle('active');
+      document.activeElement.parentElement.classList.toggle('active');
+      myFunction();
+    }
+  </script>
+
 </body>
 </html>
