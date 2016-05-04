@@ -1,9 +1,103 @@
+
 body{
   margin: 0;
 }
 
+div#header{
+  position: absolute;
+  top: 0;
+  height: 60px;
+  width: 100%;
+  background: white; /* For browsers that do not support gradients */
+  background: -webkit-linear-gradient(#DDE7EB, white); /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient(#DDE7EB, white); /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient(#DDE7EB, white); /* For Firefox 3.6 to 15 */
+  background: linear-gradient(#DDE7EB, white); /* Standard syntax (must be last) */
+  /*display: none;*/
+}
+
+div#back-header{
+  height: 100px;
+  background-color: black;
+}
+
+a.home-link{
+  line-height: 1.5;
+  font-size: 16px;
+  font-family: monospace;
+  text-decoration: none;
+  text-align: right;
+  letter-spacing: 0.5px;
+  color: #444;
+  transition: 2s;
+}
+
+a.link-button{
+  width: 50%;
+  border: 1px solid #4CAF50;
+  border-radius: 15px;
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 25px;
+  margin: 4px 2px;
+  cursor: pointer;
+
+  transition: 0.5s;
+}
+
+a.link-button:hover{
+  border: 1px solid #4CAF50;
+  background-color: #DDE7EB;
+  color: #4CAF50;
+  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
+a.home-link:hover{
+  color: #4CAF50;
+}
+
 section {
-  padding-top: 30px;
+  margin-top: -100px;
+  padding-top: 100px;
+}
+
+/*#projects, #about{
+  border: 6px solid yellow;
+}
+
+#contact{
+  border: 6px solid grey;
+}*/
+
+div.projects{
+  display: table;
+  width: 100%;
+  margin: auto;
+  /*border: 1px solid red;*/
+}
+
+.project{
+  text-align: center;
+  display: table-cell;
+  /*border: 1px solid blue;*/
+  width:30%;
+  vertical-align: top;
+  padding-right: 100px;
+  padding-left: 100px;
+}
+
+header{
+  position:fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 60px;
+  overflow: hidden;
+
 }
 
 /* Remove margins and padding from the list, and add a black background color */
@@ -14,10 +108,10 @@ ul.topnav {
   overflow: hidden;
   background-color: #333;
   position: fixed;
-  top: 0;
+  top: 55px;
   left: 0;
   width: 100%;
-  /*visibility: hidden;*/
+  /*display: none;*/
 }
 
 /* Float the list items side by side */
@@ -94,4 +188,20 @@ ul.topnav li.icon {
   ul.topnav.responsive li.active a {
     background-color: #4CAF50;
   }
+}
+
+footer{
+  background-color: #333;
+  text-align: center;
+  padding: 20px;
+}
+
+footer a{
+  text-decoration: none;
+  color: white;
+  transition: 2s;
+}
+
+footer a:hover{
+  color: #4CAF50;
 }
