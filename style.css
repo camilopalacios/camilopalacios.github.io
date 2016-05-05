@@ -1,28 +1,57 @@
+/*.subtitle, .description, .gotogithub, #gauge, #measureGlass, .project{
+    border: 1px solid red;
+}*/
+
+
+/*div#header{
+  display: none;
+}
+
+ul.topnav{
+  display: none;
+}*/
+
 
 body{
   margin: 0;
 }
 
+.title{
+  font-size: 36px;
+  font-family: monospace;
+  letter-spacing: 0.5px;
+  color: #444;
+  padding-left: 30px;
+  height: 20px;
+}
+
+.subtitle{
+  font-size: 26px;
+  font-family: monospace;
+  letter-spacing: 0.5px;
+  color: #222;
+  text-align: center;
+}
+
 div#header{
   position: absolute;
   top: 0;
-  height: 60px;
+  height: 50px;
   width: 100%;
   background: white; /* For browsers that do not support gradients */
-  background: -webkit-linear-gradient(#DDE7EB, white); /* For Safari 5.1 to 6.0 */
-  background: -o-linear-gradient(#DDE7EB, white); /* For Opera 11.1 to 12.0 */
-  background: -moz-linear-gradient(#DDE7EB, white); /* For Firefox 3.6 to 15 */
-  background: linear-gradient(#DDE7EB, white); /* Standard syntax (must be last) */
-  /*display: none;*/
+  background: -webkit-linear-gradient(#ECF7E9, white); /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient(#ECF7E9, white); /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient(#ECF7E9, white); /* For Firefox 3.6 to 15 */
+  background: linear-gradient(#ECF7E9, white); /* Standard syntax (must be last) */
 }
 
 div#back-header{
-  height: 100px;
+  height: 80px;
   background-color: black;
 }
 
 a.home-link{
-  line-height: 1.5;
+  line-height: 1;
   font-size: 16px;
   font-family: monospace;
   text-decoration: none;
@@ -33,26 +62,21 @@ a.home-link{
 }
 
 a.link-button{
-  width: 50%;
+  background-color: #ECF7E9;
   border: 1px solid #4CAF50;
-  border-radius: 15px;
-  background-color: #4CAF50;
-  color: white;
-  padding: 10px 32px;
-  text-align: center;
+  border-radius: 10px;
+  padding: 5% 10%;
+  color: black;
   text-decoration: none;
-  display: inline-block;
-  font-size: 25px;
-  margin: 4px 2px;
-  cursor: pointer;
-
+  font-size: 100%;
+  margin-right:2px;
   transition: 0.5s;
 }
 
 a.link-button:hover{
   border: 1px solid #4CAF50;
-  background-color: #DDE7EB;
-  color: #4CAF50;
+  background-color: #4CAF50;
+  color: white;
   box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
 }
 
@@ -61,57 +85,167 @@ a.home-link:hover{
 }
 
 section {
-  margin-top: -100px;
-  padding-top: 100px;
+  margin-top: -80px;
+  padding-top: 80px;
 }
-
-/*#projects, #about{
-  border: 6px solid yellow;
-}
-
-#contact{
-  border: 6px solid grey;
-}*/
 
 div.projects{
   display: table;
-  width: 100%;
+  border: 1px outset #444;
+  border-radius: 6px;
+  border-collapse: separate;
+  border-spacing: 20px;
   margin: auto;
-  /*border: 1px solid red;*/
+  background-color: #444;
+  width: 99%;
 }
 
 .project{
-  text-align: center;
+  position: relative;
+  width: 30%;
+  text-align: left;
   display: table-cell;
-  /*border: 1px solid blue;*/
-  width:30%;
   vertical-align: top;
-  padding-right: 100px;
-  padding-left: 100px;
+  border-radius: 6px;
+  border: 2px solid #474c55;
+  background-color: white;
+}
+
+.description{
+  padding-left: 10px;
+  font-size: 20px;
+  display: inline-block;
+}
+
+.instructions{
+  vertical-align: top;
+  padding-left: 10px;
+  font-size: 20px;
+  display: inline-block;
+  vertical-align: top;
+}
+
+#gauge {
+  vertical-align: top;
+  text-align: center;
+  width: 45%;
+  display: inline-block;
+  margin-left: 20px;
+}
+
+.gotogithub{
+  width: 45%;
+  margin-left: 20px;
+  text-align: right;
+  display: inline-block;
+  padding-bottom: 20px;
+  vertical-align: top;
+}
+
+.interact{
+  border: 1px solid #4CAF50;
+  background-color: #ECF7E9;
+  height: 50px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  transition: 0.5s;
+  line-height: 1;
+  font-size: 14px;
+  letter-spacing: 0.5px;
+}
+
+.interact:hover{
+  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+  color: white;
+  background-color: #4CAF50;
+}
+
+form.interact{
+  display: inline-block;
+  text-align: center;
+  font-size: 12px;
+}
+
+#measureGlass {
+  border: 1px solid blue;
+}
+
+div.settings{
+  margin-left: 5px;
+  width:45%;
+  border: 1px solid #4CAF50;
+  background-color: #ECF7E9;
+  border-radius: 5px;
+  padding-bottom: 5px;
+  transition: 1s;
+  display:inline-block;
+}
+
+div.settings:hover{
+  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+  color: white;
+  background-color: #4CAF50;
+}
+
+
+div.category{
+  vertical-align: top;
+  padding-top: 2%;
+  padding-right: 5%;
+}
+
+div.viewport{
+  width: 45%;
+  height: 300px;
+  vertical-align: top;
+  display:inline-block;
+  margin: auto;
+  border: 1px solid red;
+}
+
+#legend{
+  border-radius: 25px;
+  border: 2px solid #73AD21;
+  background: white;
+  width: 200px;
+  position: fixed;
+
+}
+
+p{
+  color: black;
+}
+
+.rangeBar{
+  width: 70%;
+}
+
+.inputText{
+  width: 50%;
 }
 
 header{
+  z-index: 3;
   position:fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 60px;
   overflow: hidden;
-
 }
 
 /* Remove margins and padding from the list, and add a black background color */
 ul.topnav {
+  z-index: 3;
   list-style-type: none;
   margin: 0;
   padding: 0;
   overflow: hidden;
   background-color: #333;
   position: fixed;
-  top: 55px;
+  top: 50px;
   left: 0;
   width: 100%;
-  /*display: none;*/
 }
 
 /* Float the list items side by side */
