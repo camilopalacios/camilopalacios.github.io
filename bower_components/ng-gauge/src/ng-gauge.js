@@ -562,7 +562,7 @@
     			},
           step: 1,
           displayPrevious: false,
-          dynamicOptions: false
+          dynamicOptions: true
 				};
         scope.options = angular.merge(defaultOptions, scope.options);
 
@@ -588,6 +588,7 @@
         if(scope.options.dynamicOptions) {
           var isFirstWatchOnOptions = true;
           scope.$watch('options', function() {
+            console.log("AAAAAAHHH!! WATCH");
               if (isFirstWatchOnOptions) {
                 isFirstWatchOnOptions = false;
               } else {

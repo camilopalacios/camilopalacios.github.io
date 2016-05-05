@@ -5,8 +5,10 @@
     <script src="bower_components/d3/d3.min.js"></script>
     <script src="bower_components/angular/angular.min.js"></script>
     <script src="bower_components/ng-gauge/dist/ng-gauge.min.js"></script>
+    <script src="bower_components/ng-measure-glass/dist/ng-measure-glass.min.js"></script>
     <script src="src/application.js"></script>
     <script src="src/gaugeController.js"></script>
+    <script src="src/measureGlassController.js"></script>
     <link rel="stylesheet" type="text/css" href="style.css" />
     <meta charset="UTF-8" />
     <title>camilopalacios.github.io</title>
@@ -33,29 +35,93 @@
         <!-- NG-GAUGE -->
         <div class="project" ng-app="GaugeApp">
           <h2 class="subtitle"> NG-GAUGE </h2>
-          <div class="description">
-            Angular.js directive to create a gauge component:
+          <p class="description">Angular.js directive to create a gauge component:</p>
+          <div class="instructions">
             <ul>
               <li>Drag the needle to update the value.</li>
-              <li>Click the "Randomize intervals" button to generate random intervals.</li>
+              <li>Click the "Randomize intervals" button to try generating random intervals.</li>
+              <li>Click the ease options to try diferent animations.</li>
             </ul>
           </div>
-          <div id="gauge" ng-controller="GaugeController as gaugeCtrl">
-            <button ng-click="gaugeCtrl.randomIntervals()">Randomize intervals</button>
-            <ui-gauge value="gaugeCtrl.value" intervals="gaugeCtrl.intervals" options="gaugeCtrl.options"></ui-gauge>
+          <div id="gauge" ng-controller="GaugeController1 as gaugeCtrl1">
+            <button class="interact" ng-click="gaugeCtrl1.randomIntervals()">Randomize intervals</button>
+            <ui-gauge value="gaugeCtrl1.value" intervals="gaugeCtrl1.intervals" options="gaugeCtrl1.options"></ui-gauge>
           </div>
-
+          <div id="gauge" ng-controller="GaugeController2 as gaugeCtrl2">
+            <form class="interact">
+              <table>
+                <tr>
+                  <td><input type="radio" name="ease" ng-click="gaugeCtrl2.setEase('bounce')" checked></td><td>Bounce</td>
+                  <td><input type="radio" name="ease" ng-click="gaugeCtrl2.setEase('linear')"></td><td>Linear</td>
+                </tr>
+                <tr>
+                  <td><input type="radio" name="ease" ng-click="gaugeCtrl2.setEase('cubic')"></td><td>Cubic</td>
+                  <td><input type="radio" name="ease" ng-click="gaugeCtrl2.setEase('elastic')"></td><td>Elastic</td>
+                </tr>
+              </table>
+            </form>
+            <ui-gauge value="gaugeCtrl2.value" intervals="gaugeCtrl2.intervals" options="gaugeCtrl2.options"></ui-gauge>
+          </div>
+          <div class="gotogithub"></div>
           <div class="gotogithub">
             <a href="https://github.com/camilopalacios/ng-gauge" class="link-button">See on GitHub</a>
           </div>
         </div>
         <!-- NG-MEASURE-GLASS -->
-        <div class="project">
+        <div class="project" ng-app="MeasureGlassApp">
           <h2 class="subtitle"> NG-MEASURE-GLASS </h2>
-          <p style="border: 1px solid red">Angular.js directive to draw a measure glass component.</p>
-          <img height="300px" src="https://raw.githubusercontent.com/camilopalacios/ng-measure-glass/master/img/glass.png"></img>
+          <p class="description">Angular.js directive to draw a measure glass component:</p>
+          <div class="instructions">
+            <ul>
+              <li>Slide the bars to change the values.</li>
+              <li>Asign new names in the "name" textboxes.</li>
+              <li>Asing new colors in the "color" textboxes (e.g. blue)</li>
+            </ul>
+          </div>
+          <div id="measureGlass" ng-controller="GlassController as glassCtrl">
+            <div class="settings">
+              <div class="category" align="right">
+                <label for="bar2">Value:</label>
+                <input class="rangeBar" name="bar2" type="range" ng-attr-min="{{glassCtrl.min}}" ng-attr-max="{{glassCtrl.max}}" ng-model="glassCtrl.values[2]">
+                <br>
+                <label for="name2">Name:</label>
+                <input class="inputText" id="name2" type="text" ng-model="glassCtrl.names[2]">
+                <br>
+                <label for="color2">Color:</label>
+                <input class="inputText" id="color2" type="text" ng-model="glassCtrl.colors[2]">
+              </div>
+              <div class="category" align="right">
+                <label for="bar1">Value:</label>
+                <input class="rangeBar" name="bar1" type="range" ng-attr-min="{{glassCtrl.min}}" ng-attr-max="{{glassCtrl.max}}" ng-model="glassCtrl.values[1]">
+                <br>
+                <label for="name2">Name:</label>
+                <input class="inputText" id="name2" type="text" ng-model="glassCtrl.names[1]">
+                <br>
+                <label for="color1">Color:</label>
+                <input class="inputText" id="color1" type="text" ng-model="glassCtrl.colors[1]">
+              </div>
+              <div class="category" align="right">
+                <label for="bar2">Value:</label>
+                <input class="rangeBar" name="bar2" type="range" ng-attr-min="{{glassCtrl.min}}" ng-attr-max="{{glassCtrl.max}}" ng-model="glassCtrl.values[0]">
+                <br>
+                <label for="name2">Name:</label>
+                <input class="inputText" id="name2" type="text" ng-model="glassCtrl.names[0]">
+                <br>
+                <label for="color2">Color:</label>
+                <input class="inputText" id="color2" type="text" ng-model="glassCtrl.colors[0]">
+              </div>
+            </div>
+            <!-- Display Section -->
+            <div>
+              {{glassCtrl.max}}
+              <div ng-mousemove="glassCtrl.onGlass($event,'legend')"  ng-mouseleave="glassCtrl.leaveGlass($event,'legend')">
+                <ui-measure-glass values="glassCtrl.values" min="glassCtrl.min" max="glassCtrl.max" colors="glassCtrl.colors"></ui-measure-glass>
+              </div>
+            </div>
+          </div>
+          <div class="gotogithub"></div>
           <div class="gotogithub">
-            <a href="https://github.com/camilopalacios/ng-measure-glass" class="link-button">ng-measure-glass</a>
+            <a href="https://github.com/camilopalacios/ng-measure-glass" class="link-button">See on GitHub</a>
           </div>
         </div>
       </div>

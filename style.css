@@ -1,6 +1,7 @@
-/*.subtitle, .description, #gauge, .gotogithub{
+/*.subtitle, .description, .gotogithub, #gauge, #measureGlass, .project{
     border: 1px solid red;
 }*/
+
 
 /*div#header{
   display: none;
@@ -38,10 +39,10 @@ div#header{
   height: 50px;
   width: 100%;
   background: white; /* For browsers that do not support gradients */
-  background: -webkit-linear-gradient(#DDE7EB, white); /* For Safari 5.1 to 6.0 */
-  background: -o-linear-gradient(#DDE7EB, white); /* For Opera 11.1 to 12.0 */
-  background: -moz-linear-gradient(#DDE7EB, white); /* For Firefox 3.6 to 15 */
-  background: linear-gradient(#DDE7EB, white); /* Standard syntax (must be last) */
+  background: -webkit-linear-gradient(#ECF7E9, white); /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient(#ECF7E9, white); /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient(#ECF7E9, white); /* For Firefox 3.6 to 15 */
+  background: linear-gradient(#ECF7E9, white); /* Standard syntax (must be last) */
 }
 
 div#back-header{
@@ -60,20 +61,12 @@ a.home-link{
   transition: 2s;
 }
 
-.gotogithub{
-  text-align: right;
-  position: absolute;
-  bottom: 20px;
-  right: 10px;
-  width: 50%;
-}
-
 a.link-button{
-  background-color: #4CAF50;
+  background-color: #ECF7E9;
   border: 1px solid #4CAF50;
-  border-radius: 15px;
+  border-radius: 10px;
   padding: 5% 10%;
-  color: white;
+  color: black;
   text-decoration: none;
   font-size: 100%;
   margin-right:2px;
@@ -82,8 +75,8 @@ a.link-button{
 
 a.link-button:hover{
   border: 1px solid #4CAF50;
-  background-color: #DDE7EB;
-  color: #4CAF50;
+  background-color: #4CAF50;
+  color: white;
   box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
 }
 
@@ -119,7 +112,13 @@ div.projects{
 }
 
 .description{
-  width:45%;
+  padding-left: 10px;
+  font-size: 20px;
+  display: inline-block;
+}
+
+.instructions{
+  vertical-align: top;
   padding-left: 10px;
   font-size: 20px;
   display: inline-block;
@@ -127,11 +126,79 @@ div.projects{
 }
 
 #gauge {
+  vertical-align: top;
   text-align: center;
-  height: 300px;
   width: 45%;
   display: inline-block;
-  padding-left: 10px;
+  margin-left: 20px;
+}
+
+.gotogithub{
+  width: 45%;
+  margin-left: 20px;
+  text-align: right;
+  display: inline-block;
+  padding-bottom: 20px;
+  vertical-align: top;
+}
+
+.interact{
+  border: 1px solid #4CAF50;
+  background-color: #ECF7E9;
+  height: 50px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  transition: 0.5s;
+  line-height: 1;
+  font-size: 14px;
+  letter-spacing: 0.5px;
+}
+
+.interact:hover{
+  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+  color: white;
+  background-color: #4CAF50;
+}
+
+form.interact{
+  display: inline-block;
+  text-align: center;
+  font-size: 12px;
+}
+
+#measureGlass {
+
+}
+
+div.settings{
+  margin-left: 5px;
+  width:45%;
+  border: 1px solid #4CAF50;
+  background-color: #ECF7E9;
+  border-radius: 5px;
+  padding-bottom: 5px;
+  transition: 1s;
+}
+
+div.settings:hover{
+  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+  color: white;
+  background-color: #4CAF50;
+}
+
+
+div.category{
+  vertical-align: top;
+  padding-top: 2%;
+  padding-right: 5%;
+}
+
+.rangeBar{
+  width: 70%;
+}
+
+.inputText{
+  width: 50%;
 }
 
 header{
