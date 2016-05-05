@@ -167,7 +167,7 @@ form.interact{
 }
 
 #measureGlass {
-
+  border: 1px solid blue;
 }
 
 div.settings{
@@ -178,6 +178,7 @@ div.settings{
   border-radius: 5px;
   padding-bottom: 5px;
   transition: 1s;
+  display:inline-block;
 }
 
 div.settings:hover{
@@ -191,6 +192,28 @@ div.category{
   vertical-align: top;
   padding-top: 2%;
   padding-right: 5%;
+}
+
+div.viewport{
+  width: 45%;
+  height: 300px;
+  vertical-align: top;
+  display:inline-block;
+  margin: auto;
+  border: 1px solid red;
+}
+
+#legend{
+  border-radius: 25px;
+  border: 2px solid #73AD21;
+  background: white;
+  width: 200px;
+  position: fixed;
+
+}
+
+p{
+  color: black;
 }
 
 .rangeBar{

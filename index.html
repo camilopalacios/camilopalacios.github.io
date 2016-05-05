@@ -6,9 +6,9 @@
     <script src="bower_components/angular/angular.min.js"></script>
     <script src="bower_components/ng-gauge/dist/ng-gauge.min.js"></script>
     <script src="bower_components/ng-measure-glass/dist/ng-measure-glass.min.js"></script>
-    <script src="src/application.js"></script>
     <script src="src/gaugeController.js"></script>
     <script src="src/measureGlassController.js"></script>
+    <script src="src/application.js"></script>
     <link rel="stylesheet" type="text/css" href="style.css" />
     <meta charset="UTF-8" />
     <title>camilopalacios.github.io</title>
@@ -33,7 +33,7 @@
       <h1 class="title">Angular directives</h1>
       <div class="projects">
         <!-- NG-GAUGE -->
-        <div class="project" ng-app="GaugeApp">
+        <div class="project" id="GaugeApp"  ng-app="GaugeApp">
           <h2 class="subtitle"> NG-GAUGE </h2>
           <p class="description">Angular.js directive to create a gauge component:</p>
           <div class="instructions">
@@ -68,7 +68,7 @@
           </div>
         </div>
         <!-- NG-MEASURE-GLASS -->
-        <div class="project" ng-app="MeasureGlassApp">
+        <div class="project" id="GlassApp" ng-app="MeasureGlassApp">
           <h2 class="subtitle"> NG-MEASURE-GLASS </h2>
           <p class="description">Angular.js directive to draw a measure glass component:</p>
           <div class="instructions">
@@ -112,11 +112,14 @@
               </div>
             </div>
             <!-- Display Section -->
-            <div>
-              {{glassCtrl.max}}
-              <div ng-mousemove="glassCtrl.onGlass($event,'legend')"  ng-mouseleave="glassCtrl.leaveGlass($event,'legend')">
-                <ui-measure-glass values="glassCtrl.values" min="glassCtrl.min" max="glassCtrl.max" colors="glassCtrl.colors"></ui-measure-glass>
-              </div>
+            <div class="viewport" ng-mousemove="glassCtrl.onGlass($event,'legend')"  ng-mouseleave="glassCtrl.leaveGlass($event,'legend')">
+              <ui-measure-glass values="glassCtrl.values" min="glassCtrl.min" max="glassCtrl.max" colors="glassCtrl.colors"></ui-measure-glass>
+            </div>
+            <!-- Legend -->
+            <div id="legend" ng-hide="glassCtrl.hide">
+              <ul ng-repeat="n in glassCtrl.names | reverse track by $index">
+                <li style="list-style-type:square; color:{{glassCtrl.colors[(glassCtrl.colors.length - 1) - $index]}};"><p>{{n + ": " + glassCtrl.values[(glassCtrl.values.length - 1) - $index]}}</p></li>
+              </ul>
             </div>
           </div>
           <div class="gotogithub"></div>
@@ -128,10 +131,6 @@
     </section>
     <section id="contact" ng-app="GaugeApp">
       <h1 class="title">Contact</h1>
-      <!-- <div ng-controller="GaugeController as gaugeCtrl">
-        <ui-gauge value="gaugeCtrl.value" intervals="gaugeCtrl.intervals" options="gaugeCtrl.options"></ui-gauge>
-        <button ng-click="gaugeCtrl.randomIntervals()">Random intervals</button>
-      </div> -->
       <p>Some text some text some text some text..</p>
       <p>Some text some text some text some text..</p>
       <p>Some text some text some text some text..</p>
