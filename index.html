@@ -2,9 +2,14 @@
 <html>
   <head>
     <script src="bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="bower_components/d3/d3.min.js"></script>
+    <script src="bower_components/angular/angular.min.js"></script>
+    <script src="bower_components/ng-gauge/dist/ng-gauge.min.js"></script>
     <script src="src/application.js"></script>
+    <script src="src/gaugeController.js"></script>
     <link rel="stylesheet" type="text/css" href="style.css" />
     <meta charset="UTF-8" />
+    <title>camilopalacios.github.io</title>
   </head>
   <body>
     <header>
@@ -23,22 +28,44 @@
     <div id="back-header">
     </div>
     <section id="projects">
-      <h1>Angular directives</h1>
+      <h1 class="title">Angular directives</h1>
       <div class="projects">
-        <div class="project">
-          <a href="https://github.com/camilopalacios/ng-gauge" class="link-button">ng-gauge</a>
-          <p>Angular.js directive to create a gauge component.</p>
-          <img width="300px" src="https://raw.githubusercontent.com/camilopalacios/ng-gauge/master/img/demo.PNG"></img>
+        <!-- NG-GAUGE -->
+        <div class="project" ng-app="GaugeApp">
+          <h2 class="subtitle"> NG-GAUGE </h2>
+          <div class="description">
+            Angular.js directive to create a gauge component:
+            <ul>
+              <li>Drag the needle to update the value.</li>
+              <li>Click the "Randomize intervals" button to generate random intervals.</li>
+            </ul>
+          </div>
+          <div id="gauge" ng-controller="GaugeController as gaugeCtrl">
+            <button ng-click="gaugeCtrl.randomIntervals()">Randomize intervals</button>
+            <ui-gauge value="gaugeCtrl.value" intervals="gaugeCtrl.intervals" options="gaugeCtrl.options"></ui-gauge>
+          </div>
+
+          <div class="gotogithub">
+            <a href="https://github.com/camilopalacios/ng-gauge" class="link-button">See on GitHub</a>
+          </div>
         </div>
+        <!-- NG-MEASURE-GLASS -->
         <div class="project">
-          <a href="https://github.com/camilopalacios/ng-measure-glass" class="link-button">ng-measure-glass</a>
-          <p>Angular.js directive to draw a measure glass component.</p>
-          <img width="300px" src="https://raw.githubusercontent.com/camilopalacios/ng-measure-glass/master/img/glass.png"></img>
+          <h2 class="subtitle"> NG-MEASURE-GLASS </h2>
+          <p style="border: 1px solid red">Angular.js directive to draw a measure glass component.</p>
+          <img height="300px" src="https://raw.githubusercontent.com/camilopalacios/ng-measure-glass/master/img/glass.png"></img>
+          <div class="gotogithub">
+            <a href="https://github.com/camilopalacios/ng-measure-glass" class="link-button">ng-measure-glass</a>
+          </div>
         </div>
       </div>
     </section>
-    <section id="contact">
-      <h1>Contact</h1>
+    <section id="contact" ng-app="GaugeApp">
+      <h1 class="title">Contact</h1>
+      <!-- <div ng-controller="GaugeController as gaugeCtrl">
+        <ui-gauge value="gaugeCtrl.value" intervals="gaugeCtrl.intervals" options="gaugeCtrl.options"></ui-gauge>
+        <button ng-click="gaugeCtrl.randomIntervals()">Random intervals</button>
+      </div> -->
       <p>Some text some text some text some text..</p>
       <p>Some text some text some text some text..</p>
       <p>Some text some text some text some text..</p>
@@ -51,7 +78,7 @@
       <p>Some text some text some text some text..</p>
     </section>
     <section id="about">
-      <h1>About</h1>
+      <h1 class="title">About</h1>
       <p>Some text some text some text some text..</p>
       <p>Some text some text some text some text..</p>
       <p>Some text some text some text some text..</p>

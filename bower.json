@@ -28,5 +28,9 @@
   "dependencies": {
     "angular": "^1.5.5",
     "jquery": "^2.2.3"
+  },
+  "devDependencies": {
+    "ng-gauge": "^1.0.8",
+    "ng-measure-glass": "ng-measuring-glass#^1.0.0"
   }
 }

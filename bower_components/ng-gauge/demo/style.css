@@ -1,0 +1,10 @@
+#gaugeDiv1{
+	position: absolute;
+	width: 600px;
+	height: 600px;
+}
+
+#clickMe{
+	position: relative;
+	float: left;
+}
