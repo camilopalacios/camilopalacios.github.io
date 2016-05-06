@@ -20,8 +20,8 @@
       </div>
     </header>
     <ul class="topnav">
-      <li class="active"><a href="#projects" onclick="setActive()">Projects</a></li>
-      <li><a href="#contact" onclick="setActive()">Contact</a></li>
+      <li class="active"><a href="#angular" onclick="setActive()">Angular</a></li>
+      <li><a href="#canvas" onclick="setActive()">Canvas</a></li>
       <li><a href="#about" onclick="setActive()">About</a></li>
       <li class="icon">
         <a href="javascript:void(0);" onclick="showMenu()">&#9776;</a>
@@ -29,9 +29,9 @@
     </ul>
     <div id="back-header">
     </div>
-    <section id="projects">
+    <section id="angular">
       <h1 class="title">Angular directives</h1>
-      <div class="projects">
+      <div class="contentFrame">
         <!-- NG-GAUGE -->
         <div class="project" id="GaugeApp"  ng-app="GaugeApp">
           <h2 class="subtitle"> NG-GAUGE </h2>
@@ -91,8 +91,7 @@
               <a href="https://github.com/camilopalacios/ng-measure-glass" class="link-button">Find the code on GitHub</a>
             </div>
           </div>
-          <div class="projectDisplay">
-            <div id="measureGlass" ng-controller="GlassController as glassCtrl">
+          <div class="projectDisplay" ng-controller="GlassController as glassCtrl">
               <div class="settings">
                 <div class="category" align="right">
                   <label for="bar2">Value:</label>
@@ -135,24 +134,19 @@
                   <li style="list-style-type:square; color:{{glassCtrl.colors[(glassCtrl.colors.length - 1) - $index]}};"><p>{{n + ": " + glassCtrl.values[(glassCtrl.values.length - 1) - $index]}}</p></li>
                 </ul>
               </div>
-            </div>
           </div>
         </div>
       </div>
     </section>
     <br>
-    <section id="contact" ng-app="GaugeApp">
-      <h1 class="title">Contact</h1>
-      <p>Some text some text some text some text..</p>
-      <p>Some text some text some text some text..</p>
-      <p>Some text some text some text some text..</p>
-      <p>Some text some text some text some text..</p>
-      <p>Some text some text some text some text..</p>
-      <p>Some text some text some text some text..</p>
-      <p>Some text some text some text some text..</p>
-      <p>Some text some text some text some text..</p>
-      <p>Some text some text some text some text..</p>
-      <p>Some text some text some text some text..</p>
+    <section id="canvas" ng-app="GaugeApp">
+      <h1 class="title">HTML5 Canvas</h1>
+      <div class="contentFrame">
+        <div class="project">
+
+
+        </div>
+      </div>
     </section>
     <section id="about">
       <h1 class="title">About</h1>
