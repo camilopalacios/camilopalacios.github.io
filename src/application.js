@@ -15,9 +15,35 @@ $(document).ready(startGame);
 
 var myGamePiece;
 
+var myGameArea = {
+  canvas: document.createElement('canvas'),
+  start: function(){
+    this.canvas.width = 480;
+    this.canvas.height = 270;
+    this.context = this.canvas.getContext('2d');
+    $('#canvas').append(this.canvas); // javascript: document.getElementById('canvas').insertBefore(this.canvas, document.getElementById('canvas').childNodes[0]);
+    this.interval = setInterval(updateGameArea, 20);
+    window.addEventListener('keydown', function(event){
+      if([37, 38, 39, 40].indexOf(event.keyCode) > -1) event.preventDefault();
+      myGameArea.keys = (myGameArea.keys || []);
+      myGameArea.keys[event.keyCode] = true;
+    });
+    window.addEventListener('keyup', function(event){
+      myGameArea.keys[event.keyCode] = false;
+    });
+  },
+  stop: function(){
+    clearInterval(this.interval);
+  },
+  clear: function(){
+    this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
+  },
+};
+
 function startGame(){
-  myGameArea.start();
   myGamePiece = new component(30, 30, 'green', 10, 120);
+  myObstacle = new component(10, 200, 'black', 100, 120);
+  myGameArea.start();
 }
 
 function component(width, height, color, x, y){
@@ -36,30 +62,39 @@ function component(width, height, color, x, y){
     this.x += this.speedX;
     this.y += this.speedY;
   };
+  this.crashWith = function(obstacle){
+    var myLeft = this.x,
+    myRight = this.x + (this.width),
+    myTop = this.y,
+    myBottom = this.y + (this.height),
+    obstacleLeft = obstacle.x,
+    obstacleRight = obstacle.x + (obstacle.width),
+    obstacleTop = obstacle.y,
+    obstacleBottom = obstacle.y + (obstacle.height);
+    return ((myBottom < obstacleTop) || (myTop > obstacleBottom) || (myRight < obstacleLeft) || (myLeft > obstacleRight)) ? false:true;
+  }
 }
 
-var myGameArea = {
-  canvas: document.createElement('canvas'),
-  start: function(){
-    this.canvas.width = 480;
-    this.canvas.height = 270;
-    this.context = this.canvas.getContext('2d');
-    $('#canvas').append(this.canvas); // javascript: document.getElementById('canvas').insertBefore(this.canvas, document.getElementById('canvas').childNodes[0]);
-    this.interval = setInterval(updateGameArea, 20);
-  },
-  clear: function(){
-    this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
-  },
-};
-
 function updateGameArea(){
-  myGameArea.clear();
-  myGamePiece.newPos();
-  myGamePiece.update();
+  if(myGamePiece.crashWith(myObstacle)){
+    myGameArea.stop();
+  }
+  else{
+    myGameArea.clear();
+    stopMove();
+    if(myGameArea.keys && myGameArea.keys[37]) {moveLeft()}
+    if(myGameArea.keys && myGameArea.keys[39]) {moveRight()}
+    if(myGameArea.keys && myGameArea.keys[38]) {moveUp()}
+    if(myGameArea.keys && myGameArea.keys[40]) {moveDown()}
+    myGamePiece.newPos();
+    myGamePiece.update();
+    myObstacle.update();
+  }
 }
 
 function moveUp(){
   myGamePiece.speedY -= 1;
+  console.log(myGamePiece.speedY);
 }
 
 function moveDown(){
