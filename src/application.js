@@ -15,6 +15,31 @@ $(document).ready(startGame);
 
 var myGamePiece;
 
+var myGameArea = {
+  canvas: document.createElement('canvas'),
+  start: function(){
+    this.canvas.width = 480;
+    this.canvas.height = 270;
+    this.context = this.canvas.getContext('2d');
+    $('#canvas').append(this.canvas); // javascript: document.getElementById('canvas').insertBefore(this.canvas, document.getElementById('canvas').childNodes[0]);
+    this.interval = setInterval(updateGameArea, 20);
+    window.addEventListener('keydown', function(event){
+      if([37, 38, 39, 40].indexOf(event.keyCode) > -1) event.preventDefault();
+      myGameArea.keys = (myGameArea.keys || []);
+      myGameArea.keys[event.keyCode] = true;
+    });
+    window.addEventListener('keyup', function(event){
+      myGameArea.keys[event.keyCode] = false;
+    });
+  },
+  stop: function(){
+    clearInterval(this.interval);
+  },
+  clear: function(){
+    this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
+  },
+};
+
 function startGame(){
   myGamePiece = new component(30, 30, 'green', 10, 120);
   myObstacle = new component(10, 200, 'black', 100, 120);
@@ -49,33 +74,6 @@ function component(width, height, color, x, y){
     return ((myBottom < obstacleTop) || (myTop > obstacleBottom) || (myRight < obstacleLeft) || (myLeft > obstacleRight)) ? false:true;
   }
 }
-
-var myGameArea = {
-  canvas: document.createElement('canvas'),
-  start: function(){
-    this.canvas.width = 480;
-    this.canvas.height = 270;
-    this.context = this.canvas.getContext('2d');
-    $('#canvas').append(this.canvas); // javascript: document.getElementById('canvas').insertBefore(this.canvas, document.getElementById('canvas').childNodes[0]);
-    this.interval = setInterval(updateGameArea, 20);
-    window.addEventListener('keydown', function(event){
-      if([37, 38, 39, 40].indexOf(event.keyCode) > -1) {
-        event.preventDefault();
-      }
-      myGameArea.keys = (myGameArea.keys || []);
-      myGameArea.keys[event.keyCode] = true;
-    });
-    window.addEventListener('keyup', function(event){
-      myGameArea.keys[event.keyCode] = false;
-    });
-  },
-  stop: function(){
-    clearInterval(this.interval);
-  },
-  clear: function(){
-    this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
-  },
-};
 
 function updateGameArea(){
   if(myGamePiece.crashWith(myObstacle)){

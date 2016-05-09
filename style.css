@@ -212,7 +212,10 @@ p{
 }
 
 #canvas{
+  margin-left: 50px;
+  vertical-align: top;
   text-align: center;
+  display: inline-block;
 }
 
 canvas{
