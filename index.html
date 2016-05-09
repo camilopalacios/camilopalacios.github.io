@@ -21,7 +21,7 @@
     </header>
     <ul class="topnav">
       <li class="active"><a href="#angular" onclick="setActive()">Angular</a></li>
-      <li><a href="#canvas" onclick="setActive()">Canvas</a></li>
+      <li><a href="#html5CanvasDemo" onclick="setActive()">Canvas</a></li>
       <li><a href="#about" onclick="setActive()">About</a></li>
       <li class="icon">
         <a href="javascript:void(0);" onclick="showMenu()">&#9776;</a>
@@ -139,12 +139,23 @@
       </div>
     </section>
     <br>
-    <section id="canvas" ng-app="GaugeApp">
+    <section id="html5CanvasDemo">
       <h1 class="title">HTML5 Canvas</h1>
       <div class="contentFrame">
-        <div class="project">
-
-
+        <div class="project" id="canvas">
+          <h2 class="subtitle"> CANVAS DEMO </h2>
+          <br>
+          <!-- The canvas is added here -->
+          <table style="border: 1px solid grey">
+            <tr>
+              <td></td><td><button onmousedown="moveUp()" onmouseup="stopMove()" ontouchstart="moveUp()" ontouchend="stopMove()">Up</button></td>
+            </tr>
+            <tr>
+              <td><button onmousedown="moveLeft()" onmouseup="stopMove()" ontouchstart="moveLeft()" ontouchend="stopMove()">Left</button></td>
+              <td><button onmousedown="moveDown()" onmouseup="stopMove()" ontouchstart="moveDown()" ontouchend="stopMove()">Down</button></td>
+              <td><button onmousedown="moveRight()" onmouseup="stopMove()" ontouchstart="moveRight()" ontouchend="stopMove()">Right</button></td>
+            </tr>
+          </table>
         </div>
       </div>
     </section>
