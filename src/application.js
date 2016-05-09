@@ -26,7 +26,7 @@ function setActive(){
  */
 $(document).ready(startGame);
 
-var myGamePiece;
+//var myGamePiece;
 
 var myGameArea = {
   canvas: document.createElement('canvas'),
@@ -60,10 +60,8 @@ var myGameArea = {
 
 function startGame(){
   goal = new component(30, 30, 'yellow', 440, 120);
-  //goal = new component(30, 30, 'yellow', 50, 120);
   myGamePiece = new component(30, 30, 'green', 10, 120);
   myObstacle = new component(10, 200, 'black', 100, 120);
-
   myGameArea.start();
 }
 
