@@ -80,15 +80,30 @@ function setComponents(){
   goal = new component(30, 30, 'yellow', 440, 120);
   myGamePiece = new component(30, 30, 'green', 10, 120);
   walls = [];
-  //                      CANVAS 480 x 270
+  //  TODO:                CANVAS 480 x 270
+  // HORIZONTALS
   walls.push(new component(50, 10, 'black', 0, 105));
-  walls.push(new component(10, 100, 'black', 50, 105));
   walls.push(new component(40, 10, 'black', 50, 205));
-  walls.push(new component(10, 25, 'black', 90, 205));
   walls.push(new component(80, 10, 'black', 90, 230));
+  walls.push(new component(60, 10, 'black', 150, 180));
+  walls.push(new component(50, 10, 'black', 430, 90));
+  walls.push(new component(50, 10, 'black', 430, 190));
+  walls.push(new component(70, 10, 'black', 100, 85));
+  walls.push(new component(70, 10, 'black', 100, 135));
+  // walls.push(new component(width, height, 'black', x, y));
+
+  // VERTICALS
+  walls.push(new component(10, 100, 'black', 50, 105));
+  walls.push(new component(10, 25, 'black', 90, 205));
   walls.push(new component(10, 30, 'black', 50, 250));
   walls.push(new component(10, 90, 'black', 210, 180));
-  walls.push(new component(60, 10, 'black', 150, 180));
+  walls.push(new component(10, 60, 'black', 32, 0));
+  walls.push(new component(10, 40, 'black', 255, 230));
+  walls.push(new component(10, 45, 'black', 100, 95));
+  // walls.push(new component(width, height, 'black', x, y));
+
+  // walls.push(new component(width, height, 'black', x, y));
+  // walls.push(new component(width, height, 'black', x, y));
   // walls.push(new component(width, height, 'black', x, y));
   // walls.push(new component(width, height, 'black', x, y));
   // walls.push(new component(width, height, 'black', x, y));
