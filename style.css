@@ -211,8 +211,10 @@ p{
   width: 50%;
 }
 
-#canvas{
+#restart{
   margin-left: 50px;
+}
+#canvas{
   vertical-align: top;
   text-align: center;
   display: inline-block;
