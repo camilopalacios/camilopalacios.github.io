@@ -80,10 +80,21 @@ function setComponents(){
   goal = new component(30, 30, 'yellow', 440, 120);
   myGamePiece = new component(30, 30, 'green', 10, 120);
   walls = [];
-  walls.push(new component(100, 10, 'black', 0, 160));
-  walls.push(new component(10, 200, 'black', 100, 120));
-  walls.push(new component(10, 200, 'black', 150, 0));
-  walls.push(new component(250, 10, 'black', 190, 180));
+  //                      CANVAS 480 x 270
+  walls.push(new component(50, 10, 'black', 0, 105));
+  walls.push(new component(10, 100, 'black', 50, 105));
+  walls.push(new component(40, 10, 'black', 50, 205));
+  walls.push(new component(10, 25, 'black', 90, 205));
+  walls.push(new component(80, 10, 'black', 90, 230));
+  walls.push(new component(10, 30, 'black', 50, 250));
+  walls.push(new component(10, 90, 'black', 210, 180));
+  walls.push(new component(60, 10, 'black', 150, 180));
+  // walls.push(new component(width, height, 'black', x, y));
+  // walls.push(new component(width, height, 'black', x, y));
+  // walls.push(new component(width, height, 'black', x, y));
+  // walls.push(new component(width, height, 'black', x, y));
+  // walls.push(new component(width, height, 'black', x, y));
+  // walls.push(new component(width, height, 'black', x, y));
 }
 
 function component(width, height, color, x, y){
@@ -126,26 +137,26 @@ function component(width, height, color, x, y){
         obstacleBottom = walls[w].y + (walls[w].height),
         overlap = 9999,
         side = undefined;
-        if(myBottom > obstacleTop && myBottom < obstacleBottom){
-          if(myBottom-obstacleTop < overlap){
+        if(myBottom >= obstacleTop && myBottom <= obstacleBottom){
+          if(myBottom-obstacleTop <= overlap){
             overlap = myBottom-obstacleTop;
             side = 'bottom';
           }
         }
-        if(myTop < obstacleBottom && myTop > obstacleTop){
-          if(obstacleBottom-myTop < overlap){
+        if(myTop <= obstacleBottom && myTop >= obstacleTop){
+          if(obstacleBottom-myTop <= overlap){
             overlap = obstacleBottom-myTop;
             side = 'top';
           }
         }
-        if(myRight > obstacleLeft && myRight < obstacleRight){
-          if(myRight-obstacleLeft < overlap){
+        if(myRight >= obstacleLeft && myRight <= obstacleRight){
+          if(myRight-obstacleLeft <= overlap){
             overlap = myRight-obstacleLeft;
             side = 'right';
           }
         }
-        if(myLeft > obstacleLeft && myLeft < obstacleRight){
-          if(obstacleRight-myLeft < overlap){
+        if(myLeft >= obstacleLeft && myLeft <= obstacleRight){
+          if(obstacleRight-myLeft <= overlap){
             overlap = obstacleRight-myLeft;
             side = 'left';
           }
