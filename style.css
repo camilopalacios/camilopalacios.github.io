@@ -123,6 +123,7 @@ div.contentFrame{
   display: inline-block;
   width: 45%;
   padding-right: 20px;
+  padding-left: 20px;
 }
 
 .projectDisplay{
@@ -236,6 +237,12 @@ div.viewport{
 
 p{
   color: black;
+}
+
+.email{
+  margin-left: 30px;
+  padding-left: 10px;
+  font-size: 20px;
 }
 
 .rangeBar{
