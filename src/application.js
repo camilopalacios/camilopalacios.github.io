@@ -34,7 +34,7 @@ var myGameArea = {
     this.canvas.width = 480;
     this.canvas.height = 270;
     this.context = this.canvas.getContext('2d');
-    this.keys;
+    this.keys = [];
     $('#canvas').append(this.canvas); // javascript: document.getElementById('canvas').insertBefore(this.canvas, document.getElementById('canvas').childNodes[0]);
     this.interval = setInterval(updateGameArea, 20);
     window.addEventListener('keydown', function(event){
@@ -45,6 +45,27 @@ var myGameArea = {
     window.addEventListener('keyup', function(event){
       myGameArea.keys[event.keyCode] = false;
     });
+    window.addEventListener('mouseover', function(event) {
+      var context = myGameArea.canvas.getContext("2d");
+      var mousePos = myGameArea.getMousePos(myGameArea.canvas, event);
+      var message = 'Mouse position: ' + Math.floor(mousePos.x) + ',' + Math.floor(mousePos.y);
+      //console.log("before writing " + message);
+      //myGameArea.writeMessage(myGameArea.canvas, message);
+      context.font = '18pt Calibri';
+      context.fillStyle = 'black';
+      context.fillText(message, 10, 25);
+    }, false);
+    window.addEventListener('mousemove', function(event) {
+      var context = myGameArea.canvas.getContext("2d");
+      var mousePos = myGameArea.getMousePos(myGameArea.canvas, event);
+      var message = 'Mouse position: ' + Math.floor(mousePos.x) + ',' + Math.floor(mousePos.y);
+      //console.log("before writing " + message);
+      //myGameArea.writeMessage(myGameArea.canvas, message);
+      context.font = '18pt Calibri';
+      context.fillStyle = 'black';
+      context.fillText(message, 10, 25);
+    }, false);
+
   },
   restart: function(){
     this.canvas.width = 480;
@@ -53,7 +74,6 @@ var myGameArea = {
     $('#canvas').append(this.canvas); // javascript: document.getElementById('canvas').insertBefore(this.canvas, document.getElementById('canvas').childNodes[0]);
   },
   stop: function(){
-
     this.context.fillStyle = "white";
     this.context.fillRect(30,30, 420, 210);
     this.context.fillStyle = "red"; // draw font in red
@@ -63,6 +83,20 @@ var myGameArea = {
   },
   clear: function(){
     this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
+  },
+  writeMessage: function(message){
+    var context = this.canvas.getContext("2d");
+    console.log("write message " + message)
+    context.font = '18pt Calibri';
+    context.fillStyle = 'black';
+    context.fillText(message, 10, 25);
+  },
+  getMousePos(canvas, evt){
+    var rect = canvas.getBoundingClientRect();
+    return {
+      x: evt.clientX - rect.left,
+      y: evt.clientY - rect.top
+    };
   },
 };
 
@@ -78,7 +112,8 @@ function restartGame(){
 
 function setComponents(){
   goal = new component(30, 30, 'yellow', 440, 120);
-  myGamePiece = new component(30, 30, 'green', 10, 120);
+  //myGamePiece = new component(30, 30, 'green', 10, 120);
+  myGamePiece = new component(30, 30, 'green', 300, 200);
   walls = [];
   //  TODO:                CANVAS 480 x 270
   // HORIZONTALS
@@ -88,28 +123,42 @@ function setComponents(){
   walls.push(new component(60, 10, 'black', 150, 180));
   walls.push(new component(50, 10, 'black', 430, 90));
   walls.push(new component(50, 10, 'black', 430, 190));
+  walls.push(new component(10, 10, 'black', 390, 190));
   walls.push(new component(70, 10, 'black', 100, 85));
   walls.push(new component(70, 10, 'black', 100, 135));
-  // walls.push(new component(width, height, 'black', x, y));
+  walls.push(new component(70, 10, 'black', 195, 120));
+  walls.push(new component(80, 10, 'black', 215, 161));
+  walls.push(new component(80, 10, 'black', 85, 40));
+  walls.push(new component(20, 10, 'black', 200, 60));
+  walls.push(new component(120, 10, 'black', 270, 28));
+  walls.push(new component(80, 10, 'black', 270, 70));
+  // walls.push(new component(width, 10, 'black', x, y));
+  // walls.push(new component(width, 10, 'black', x, y));
+  // walls.push(new component(width, 10, 'black', x, y));
+  // walls.push(new component(width, 10, 'black', x, y));
+  // walls.push(new component(width, 10, 'black', x, y));
+  // walls.push(new component(width, 10, 'black', x, y));
 
   // VERTICALS
+
   walls.push(new component(10, 100, 'black', 50, 105));
   walls.push(new component(10, 25, 'black', 90, 205));
   walls.push(new component(10, 30, 'black', 50, 250));
   walls.push(new component(10, 90, 'black', 210, 180));
   walls.push(new component(10, 60, 'black', 32, 0));
+  walls.push(new component(10, 40, 'black', 130, 0));
+  walls.push(new component(10, 95, 'black', 220, 25));
   walls.push(new component(10, 40, 'black', 255, 230));
   walls.push(new component(10, 45, 'black', 100, 95));
-  // walls.push(new component(width, height, 'black', x, y));
+  walls.push(new component(10, 19, 'black', 140, 180));
+  walls.push(new component(10, 91, 'black', 295, 80));
+  walls.push(new component(10, 100, 'black', 380, 38));
+  walls.push(new component(10, 60, 'black', 380, 168));
+  walls.push(new component(10, 10, 'black', 380, 260));
+  // walls.push(new component(10, height, 'black', x, y));
+  // walls.push(new component(10, height, 'black', x, y));
+  // walls.push(new component(10, height, 'black', x, y));
 
-  // walls.push(new component(width, height, 'black', x, y));
-  // walls.push(new component(width, height, 'black', x, y));
-  // walls.push(new component(width, height, 'black', x, y));
-  // walls.push(new component(width, height, 'black', x, y));
-  // walls.push(new component(width, height, 'black', x, y));
-  // walls.push(new component(width, height, 'black', x, y));
-  // walls.push(new component(width, height, 'black', x, y));
-  // walls.push(new component(width, height, 'black', x, y));
 }
 
 function component(width, height, color, x, y){
@@ -152,25 +201,25 @@ function component(width, height, color, x, y){
         obstacleBottom = walls[w].y + (walls[w].height),
         overlap = 9999,
         side = undefined;
-        if(myBottom >= obstacleTop && myBottom <= obstacleBottom){
+        if(myBottom > obstacleTop && myBottom <= obstacleBottom){
           if(myBottom-obstacleTop <= overlap){
             overlap = myBottom-obstacleTop;
             side = 'bottom';
           }
         }
-        if(myTop <= obstacleBottom && myTop >= obstacleTop){
+        if(myTop < obstacleBottom && myTop >= obstacleTop){
           if(obstacleBottom-myTop <= overlap){
             overlap = obstacleBottom-myTop;
             side = 'top';
           }
         }
-        if(myRight >= obstacleLeft && myRight <= obstacleRight){
+        if(myRight > obstacleLeft && myRight <= obstacleRight){
           if(myRight-obstacleLeft <= overlap){
             overlap = myRight-obstacleLeft;
             side = 'right';
           }
         }
-        if(myLeft >= obstacleLeft && myLeft <= obstacleRight){
+        if(myLeft >= obstacleLeft && myLeft < obstacleRight){
           if(obstacleRight-myLeft <= overlap){
             overlap = obstacleRight-myLeft;
             side = 'left';
