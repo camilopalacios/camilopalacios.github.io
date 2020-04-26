@@ -1,167 +1,25 @@
 <!DOCTYPE html>
-<html>
+<html lang="en-us">
   <head>
-    <script src="bower_components/jquery/dist/jquery.min.js"></script>
-    <script src="bower_components/d3/d3.min.js"></script>
-    <script src="bower_components/angular/angular.min.js"></script>
-    <script src="bower_components/ng-gauge/dist/ng-gauge.min.js"></script>
-    <script src="bower_components/ng-measure-glass/dist/ng-measure-glass.min.js"></script>
-    <script src="src/gaugeController.js"></script>
-    <script src="src/measureGlassController.js"></script>
-    <script src="src/application.js"></script>
-    <link rel="stylesheet" type="text/css" href="style.css" />
-    <meta charset="UTF-8" />
-    <title>camilopalacios.github.io</title>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>Unity WebGL Player | PEC2 - Un first person shooter</title>
+    <link rel="shortcut icon" href="TemplateData/favicon.ico">
+    <link rel="stylesheet" href="TemplateData/style.css">
+    <script src="TemplateData/UnityProgress.js"></script>
+    <script src="Build/UnityLoader.js"></script>
+    <script>
+      var unityInstance = UnityLoader.instantiate("unityContainer", "Build/WebBuild.json", {onProgress: UnityProgress});
+    </script>
   </head>
   <body>
-    <header>
-      <div id="header">
-        <a href="https://camilopalacios.github.io" class="home-link"><h2>camilopalacios.github.io</h2></a>
+    <div class="webgl-content">
+      <div id="unityContainer" style="width: 960px; height: 600px"></div>
+      <div class="footer">
+        <div class="webgl-logo"></div>
+        <div class="fullscreen" onclick="unityInstance.SetFullscreen(1)"></div>
+        <div class="title">PEC2 - Un first person shooter</div>
       </div>
-    </header>
-    <ul class="topnav">
-      <li class="active"><a href="https://outerlife.club" onclick="setActive()">Outer Life</a></li>
-      <li><a href="#angular" onclick="setActive()">Angular</a></li>
-      <li><a href="#html5CanvasDemo" onclick="setActive()">Canvas</a></li>
-      <li><a href="#about" onclick="setActive()">About</a></li>
-      <li class="icon">
-        <a href="javascript:void(0);" onclick="showMenu()">&#9776;</a>
-      </li>
-    </ul>
-    <div id="back-header">
     </div>
-    <section id="angular">
-      <h1 class="title">Angular directives</h1>
-      <div class="contentFrame">
-        <!-- NG-GAUGE -->
-        <div class="project" id="GaugeApp"  ng-app="GaugeApp">
-          <h2 class="subtitle"> NG-GAUGE </h2>
-          <br>
-          <div class="projectinfo">
-            <p class="description">Angular.js directive to create a gauge component:</p>
-            <br>
-            <div class="instructions">
-              <ul>
-                <li>Drag the needle to update the value.</li>
-                <li>Click the "Randomize" button to try generating random intervals.</li>
-                <li>Click the ease options to try diferent animations.</li>
-              </ul>
-            </div>
-            <div class="gotogithub">
-              <a href="https://github.com/camilopalacios/ng-measure-glass" class="link-button">Find the code on GitHub</a>
-            </div>
-          </div>
-          <div class="projectDisplay">
-            <div id="gauge" ng-controller="GaugeController1 as gaugeCtrl1">
-              <button class="interact" ng-click="gaugeCtrl1.randomIntervals()">Randomize</button>
-              <ui-gauge value="gaugeCtrl1.value" intervals="gaugeCtrl1.intervals" options="gaugeCtrl1.options"></ui-gauge>
-            </div>
-            <div id="gauge" ng-controller="GaugeController2 as gaugeCtrl2">
-              <form class="interact">
-                <table>
-                  <tr>
-                    <td><input type="radio" name="ease" ng-click="gaugeCtrl2.setEase('bounce')" checked></td><td>Bounce</td>
-                    <td><input type="radio" name="ease" ng-click="gaugeCtrl2.setEase('linear')"></td><td>Linear</td>
-                  </tr>
-                  <tr>
-                    <td><input type="radio" name="ease" ng-click="gaugeCtrl2.setEase('cubic')"></td><td>Cubic</td>
-                    <td><input type="radio" name="ease" ng-click="gaugeCtrl2.setEase('elastic')"></td><td>Elastic</td>
-                  </tr>
-                </table>
-              </form>
-              <ui-gauge value="gaugeCtrl2.value" intervals="gaugeCtrl2.intervals" options="gaugeCtrl2.options"></ui-gauge>
-            </div>
-          </div>
-        </div>
-        <!-- NG-MEASURE-GLASS -->
-        <div class="project" id="GlassApp" ng-app="MeasureGlassApp">
-          <h2 class="subtitle"> NG-MEASURE-GLASS </h2>
-          <br>
-          <div class="projectinfo">
-            <p class="description">Angular.js directive to draw a measure glass component:</p>
-            <br>
-            <div class="instructions">
-              <ul>
-                <li>Slide the bars to change the values.</li>
-                <li>Asign new names in the "name" textboxes.</li>
-                <li>Asing new colors in the "color" textboxes (e.g. blue)</li>
-                <li>Move the coursor over the glass to display more information.</li>
-              </ul>
-            </div>
-            <div class="gotogithub">
-              <a href="https://github.com/camilopalacios/ng-measure-glass" class="link-button">Find the code on GitHub</a>
-            </div>
-          </div>
-          <div class="projectDisplay" ng-controller="GlassController as glassCtrl">
-              <div class="settings">
-                <div class="category" align="right" ng-repeat="n in glassCtrl.values | reverse track by $index">
-                  <label class="value" for="bar">Value:</label>
-                  <input class="rangeBar" name="bar" type="range" ng-attr-min="{{glassCtrl.min}}" ng-attr-max="{{glassCtrl.max}}" ng-model="glassCtrl.values[(glassCtrl.values.length - 1) - $index]">
-                  <br>
-                  <label for="name">Name:</label>
-                  <input class="inputText" name="name" type="text" ng-model="glassCtrl.names[(glassCtrl.names.length - 1) - $index]">
-                  <br>
-                  <label for="color">Color:</label>
-                  <input class="inputText" name="color" type="text" ng-model="glassCtrl.colors[(glassCtrl.colors.length - 1) - $index]">
-                </div>
-              </div>
-              <!-- Display Section -->
-              <div class="viewport" ng-mousemove="glassCtrl.onGlass($event,'legend')"  ng-mouseleave="glassCtrl.leaveGlass($event,'legend')">
-                <ui-measure-glass values="glassCtrl.values" min="glassCtrl.min" max="glassCtrl.max" colors="glassCtrl.colors"></ui-measure-glass>
-              </div>
-              <!-- Legend -->
-              <div id="legend" ng-hide="glassCtrl.hide">
-                <ul ng-repeat="n in glassCtrl.names | reverse track by $index">
-                  <li style="list-style-type:square; color:{{glassCtrl.colors[(glassCtrl.colors.length - 1) - $index]}};"><p>{{n + ": " + glassCtrl.values[(glassCtrl.values.length - 1) - $index]}}</p></li>
-                </ul>
-              </div>
-          </div>
-        </div>
-      </div>
-    </section>
-    <br>
-    <section id="html5CanvasDemo">
-      <h1 class="title">HTML5 Canvas</h1>
-      <div class="contentFrame">
-        <div class="project">
-          <h2 class="subtitle"> CANVAS DEMO </h2>
-          <br>
-          <div class="projectinfo">
-            <p class="description">A simple game using the HTML5 Canvas element:</p>
-            <br>
-            <div class="instructions">
-              <ul>
-                <li>Use the keyboard arrow keys to control the block's movement.</li>
-                <li>Move the block to its goal across the maze.</li>
-                <li>Use the restart button to start over.</li>
-              </ul>
-            </div>
-            <div class="gotogithub">
-              <a href="http://www.w3schools.com/games/default.asp" class="link-button">Follow tutorial</a>
-            </div>
-          </div>
-          <div class="projectDisplay">
-            <button class="interact" onclick="restartGame()">Restart</button>
-            <div  id="canvas">
-            <!-- The canvas is added here -->
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-    <section id="about">
-      <h1 class="title">About</h1>
-      <div class="contentFrame">
-        <div class="project">
-          <h2 class="subtitle"> Camilo Palacios Garzón </h2>
-          <br>
-          <div class="projectinfo">
-            <p class="email">email: example@email.com</p>
-          </div>
-      </div>
-    </section>
-    <footer>
-      <a href="https://github.com/camilopalacios">https://github.com/camilopalacios</a>
-    </footer>
   </body>
 </html>
