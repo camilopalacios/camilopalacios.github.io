@@ -1,16 +1,13 @@
 {
-"companyName": "DefaultCompany",
-"productName": "PEC2 - Un first person shooter",
-"productVersion": "0.1",
+"companyName": " ",
+"productName": "Space Explorer",
 "dataUrl": "WebBuild.data.unityweb",
-"wasmCodeUrl": "WebBuild.wasm.code.unityweb",
-"wasmFrameworkUrl": "WebBuild.wasm.framework.unityweb",
-"graphicsAPI": ["WebGL 2.0","WebGL 1.0"],
+"asmCodeUrl": "WebBuild.asm.code.unityweb",
+"asmMemoryUrl": "WebBuild.asm.memory.unityweb",
+"asmFrameworkUrl": "WebBuild.asm.framework.unityweb",
+"TOTAL_MEMORY": 268435456,
+"graphicsAPI": ["WebGL 2.0", "WebGL 1.0"],
 "webglContextAttributes": {"preserveDrawingBuffer": false},
 "splashScreenStyle": "Dark",
-"backgroundColor": "#231F20",
-"cacheControl": {"default": "must-revalidate"},
-"developmentBuild": true,
-"multithreading": false,
-"unityVersion": "2019.3.3f1"
+"backgroundColor": "#000000"
 }
